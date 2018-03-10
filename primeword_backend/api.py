@@ -14,17 +14,17 @@ textbooks_router.register(
     'notes', NoteViewSet,
     base_name='textbook-note',
     parents_query_lookups=['textbook']) \
-    .register(
-    'words', WordViewSet,
-    base_name='textbook-note-word',
-    parents_query_lookups=['textbook__note', 'word']
-)
+#     .register(
+#     'words', WordViewSet,
+#     base_name='textbook-note-word',
+#     parents_query_lookups=['note','word']
+# )
 
 # router.register('authors', AuthorViewSet)
 notes_router = router.register('notes', NoteViewSet)
 notes_router.register(
     'words', WordViewSet,
-    base_name='textbook-note-word',
-    parents_query_lookups=['textbook__note', 'word']
+    base_name='note-word',
+    parents_query_lookups=['note']
 )
 router.register('words', WordViewSet)
