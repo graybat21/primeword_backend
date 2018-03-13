@@ -138,4 +138,4 @@ SWAGGER_SETTINGS = {
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
-# AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'auth.User'

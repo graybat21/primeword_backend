@@ -9,7 +9,7 @@ class Textbook(models.Model):
     user = models.ForeignKey('auth.User')
 
     def __str__(self):
-        return f'{self.name} {self.grade}'
+        return str(self.pk)
 
 
 class Note(models.Model):
@@ -18,7 +18,7 @@ class Note(models.Model):
     lesson = models.IntegerField(default=1)
 
     def __str__(self):
-        return f'{self.lesson}'
+        return str(self.pk)
 
 
 class Word(models.Model):
@@ -28,7 +28,7 @@ class Word(models.Model):
     note = models.ForeignKey(Note)
 
     def __str__(self):
-        return f'{self.word} {self.meaning}'
+        return str(self.pk)
 
 
 # class User(AbstractUser):
