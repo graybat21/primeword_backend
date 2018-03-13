@@ -12,5 +12,5 @@ class Memory(models.Model):
     regdate = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f'{self.user self.word}'
+        return str(self.pk)
 
