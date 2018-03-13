@@ -2,3 +2,5 @@ django<2.0
 djangorestframework<3.7
 django-rest-swagger
 drf-extensions
+psycopg2-binary
+gunicorn
