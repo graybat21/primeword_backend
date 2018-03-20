@@ -3,4 +3,6 @@ djangorestframework<3.7
 django-rest-swagger
 drf-extensions
 psycopg2-binary
+whitenoise
+django-import-export
 gunicorn

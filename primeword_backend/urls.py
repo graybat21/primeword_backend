@@ -16,11 +16,24 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework_swagger.views import get_swagger_view
+
+from memory.views import MemoryList, MemoryDetail, MemoryListByUser, MemoryListByUserAndWord, MemoryListByWord
+from testlog.views import TestlogList, TestlogDetail
 from .api import router
 
 schema_view = get_swagger_view(title='Primeword API')
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^swagger/', schema_view),
+
+    url(r'^memory/$', MemoryList.as_view()),
+    url(r'^memory/(?P<pk>[0-9]+)/$', MemoryDetail.as_view()),
+    url(r'^memory/user/(?P<user_id>[0-9]+)/$', MemoryListByUser.as_view()),
+    url(r'^memory/word/(?P<word_id>[0-9]+)/$', MemoryListByWord.as_view()),
+    url(r'^memory/user/(?P<user_id>[0-9]+)/word/(?P<word_id>[0-9]+)/$', MemoryListByUserAndWord.as_view()),
+
+    url(r'^testlog/$', TestlogList.as_view()),
+    url(r'^testlog/(?P<pk>[0-9]+)/$', TestlogDetail.as_view()),
+
     url(r'^', include(router.urls))
 ]
