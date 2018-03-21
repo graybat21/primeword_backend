@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'corsheaders',
     'rest_framework',
     'rest_framework_swagger',
     'import_export',
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'primeword_backend.middleware.corsMiddleware',
 ]
 
 ROOT_URLCONF = 'primeword_backend.urls'
@@ -140,3 +143,25 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 AUTH_USER_MODEL = 'auth.User'
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
+    # ],
+    # 'DEFAULT_PARSER_CLASSES': (
+    #     'rest_framework.parsers.JSONParser',
+    #     'rest_framework.parsers.FormParser',
+    #     'rest_framework.parsers.MultiPartParser',
+    # ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+}
+
+APPEND_SLASH = False
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = False
+from corsheaders.defaults import default_headers
+CORS_ALLOW_HEADERS = default_headers + (
+    'X-Auth-Token',
+    'HTTP_X_AUTH_TOKEN',
+)
