@@ -4,10 +4,12 @@ from import_export.admin import ImportExportMixin
 
 from .models import Textbook, Note, Word
 
+
 class WordResource(resources.ModelResource):
     class Meta:
         model = Word
-
+        import_id_fields = ('word_id',)
+        # exclude = ('word_id',)
 # Register your models here.
 class TextbookAdmin(admin.ModelAdmin):
     list_display = ('textbook_id', 'name', 'grade', 'user')
@@ -15,7 +17,7 @@ class TextbookAdmin(admin.ModelAdmin):
 
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('note_id', 'textbook', 'lesson')
+    list_display = ('note_id', 'textbook', 'lesson', 'regdate')
     list_display_links = list_display
 
 
