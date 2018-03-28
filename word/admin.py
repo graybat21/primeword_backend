@@ -17,7 +17,7 @@ class TextbookAdmin(admin.ModelAdmin):
 
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('note_id', 'textbook', 'lesson', 'regdate')
+    list_display = ('note_id', 'textbook', 'lesson')
     list_display_links = list_display
 
 

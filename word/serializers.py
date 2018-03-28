@@ -13,7 +13,7 @@ class TextbookSerializer(ModelSerializer):
 class NoteSerializer(ModelSerializer):
     class Meta:
         model = Note
-        fields = ('note_id', 'textbook', 'lesson','regdate')
+        fields = ('note_id', 'textbook', 'lesson')
         depth = 1
 
 
