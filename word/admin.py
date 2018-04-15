@@ -14,12 +14,12 @@ class WordResource(resources.ModelResource):
 
 # Register your models here.
 class TextbookAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'grade', 'user', 'regdate')
+    list_display = ('uuid', 'name', 'grade', 'user', 'regdate')
     list_display_links = list_display
 
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('id', 'textbook', 'lesson', 'regdate')
+    list_display = ('uuid', 'textbook', 'lesson', 'regdate')
     list_display_links = list_display
 
 

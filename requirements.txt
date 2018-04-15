@@ -7,3 +7,4 @@ whitenoise
 django-import-export
 django-cors-headers
 gunicorn
+django-request-logging
