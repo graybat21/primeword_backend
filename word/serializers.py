@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from .models import Textbook, Note, Word, Wordclass
+from .models import Textbook, Note, Word
 
 
 class TextbookSerializer(ModelSerializer):
@@ -17,14 +17,15 @@ class NoteSerializer(ModelSerializer):
         depth = 1
 
 
-class WordclassSerializer(ModelSerializer):
-    class Meta:
-        model = Wordclass
-        fields = ('id', 'name', 'memo')
+# class WordclassSerializer(ModelSerializer):
+#     class Meta:
+#         model = Wordclass
+#         fields = ('id', 'name', 'memo')
 
 
 class WordSerializer(ModelSerializer):
     class Meta:
         model = Word
-        fields = ('id', 'word', 'meaning', 'note', 'regdate')
+        fields = ('id', 'spelling', 'meaning', 'note', 'memo')
         depth = 1
+
